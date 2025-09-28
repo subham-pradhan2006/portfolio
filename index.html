@@ -591,7 +591,7 @@
             <input type="text" class="form-control" placeholder="Your Name" name="from_name" required>
           </div>
           <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Your Email" name="reply_to" required>
+            <input type="email" class="form-control" placeholder="Your Email" name="from_email" required>
           </div>
           <div class="mb-3">
             <textarea class="form-control" placeholder="Your Message" name="message" rows="5" required></textarea>
@@ -614,12 +614,12 @@
 <!-- EmailJS Script -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+  emailjs.init('92Yl-NHFVKNu_4kt0'); // Replace with your EmailJS public key
 
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_uio63n3', 'template_tqhdwtd', this)
       .then(() => alert('Message sent! ✅'), (err) => alert('Error sending message: ' + err));
     form.reset();
   });
@@ -796,6 +796,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
 
 
 
