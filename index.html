@@ -512,31 +512,74 @@
     }
 
     .floating-card {
-      position: absolute;
-      z-index: 5;
-      width: 210px;
-      padding: 16px;
-      border: 1px solid var(--stroke);
-      border-radius: 24px;
-      background: rgba(7,17,31,.72);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-    }
-    html[data-theme="light"] .floating-card { background: rgba(255,255,255,.80); }
-    .floating-card.stack { left: 0; bottom: 75px; }
-    .floating-card.leader { right: -8px; top: 118px; }
-    .floating-card i {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      color: white;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      margin-bottom: 12px;
-    }
-    .floating-card strong { display:block; font-weight: 900; }
-    .floating-card span { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 185px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+html[data-theme="dark"] .floating-card {
+  background: rgba(10, 18, 32, .72);
+}
+
+.floating-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.18);
+}
+
+.floating-card.stack {
+  left: -28px;
+  bottom: 60px;
+}
+
+.floating-card.leader {
+  right: -28px;
+  top: 80px;
+}
+
+.floating-card .mini-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 10px 24px rgba(139,92,246,.22);
+}
+
+.floating-card strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  font-weight: 800;
+}
+
+.floating-card span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* mobile me hide hi rakho */
+@media (max-width: 720px) {
+  .floating-card {
+    display: none;
+  }
+}
 
     .section { padding: 104px 0; position: relative; }
     .section-head {
@@ -973,6 +1016,16 @@
       transform: translateY(14px);
       transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
     }
+
+    .floating-card.stack {
+  left: -35px;
+  bottom: 35px;
+}
+
+.floating-card.leader {
+  right: -35px;
+  top: 55px;
+}
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
@@ -1128,17 +1181,25 @@
             </div>
           </div>
 
-          <div class="floating-card stack reveal">
-            <i class="fa-solid fa-layer-group"></i>
-            <strong>MERN + UI</strong>
-            <span>Building responsive interfaces, dashboards, landing pages, and branded web experiences.</span>
-          </div>
+         <div class="floating-card stack reveal">
+  <div class="mini-icon">
+    <i class="fa-solid fa-layer-group"></i>
+  </div>
+  <div>
+    <strong>MERN Stack</strong>
+    <span>React • Node • MongoDB</span>
+  </div>
+</div>
 
-          <div class="floating-card leader reveal">
-            <i class="fa-solid fa-users-gear"></i>
-            <strong>SIH Team Lead</strong>
-            <span>Led Team ID 81801 for Smart India Hackathon 2025.</span>
-          </div>
+<div class="floating-card leader reveal">
+  <div class="mini-icon">
+    <i class="fa-solid fa-trophy"></i>
+  </div>
+  <div>
+    <strong>SIH 2025 Lead</strong>
+    <span>Team ID 81801</span>
+  </div>
+</div>
         </section>
       </div>
     </header>
